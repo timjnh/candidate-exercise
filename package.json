@@ -1,0 +1,20 @@
+{
+  "name": "candidate-exercise",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node ./source/index.js",
+    "watch": "nodemon ./source/index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "2.0.2"
+  },
+  "dependencies": {
+    "@hapi/hapi": "19.0.4",
+    "@hapi/inert": "6.0.1",
+    "@hapi/vision": "6.0.0",
+    "hapi-swagger": "12.0.0"
+  }
+}
