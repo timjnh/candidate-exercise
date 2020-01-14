@@ -22,22 +22,12 @@ class Server {
             HapiSwagger
         ]);
 
-        this.server.route([{
-            method: 'GET',
-            path: '/calculateArea/{edgeLength}',
-            options: {
-                tags: ['api'],
-                validate: {
-                    params: {
-                         edgeLength: Joi.number().required().description('The length of one edge')
-                    }
-                }
-            },
-            handler: async (request) => {
+        this.server.validator(Joi);
 
-                return { hello: 'world' };
-            }
-        }]);
+        this.server.route([
+            require('./routes/fullUrl'),
+            require('./routes/openingText'),
+        ]);
 
         await this.server.start();
 
