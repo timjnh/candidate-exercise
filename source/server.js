@@ -3,7 +3,8 @@
 const Hapi = require('@hapi/hapi'),
     Inert = require('@hapi/inert'),
     Vision = require('@hapi/vision'),
-    HapiSwagger = require('hapi-swagger');
+    HapiSwagger = require('hapi-swagger'),
+    Joi = require('@hapi/joi');
 
 class Server {
     constructor() {
@@ -23,9 +24,17 @@ class Server {
 
         this.server.route([{
             method: 'GET',
-            path: '/hello',
-            config: { tags: ['api'] },
-            handler: async () => {
+            path: '/calculateArea/{edgeLength}',
+            options: {
+                tags: ['api'],
+                validate: {
+                    params: {
+                         edgeLength: Joi.number().required().description('The length of one edge')
+                    }
+                }
+            },
+            handler: async (request) => {
+
                 return { hello: 'world' };
             }
         }]);
