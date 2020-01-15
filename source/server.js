@@ -25,8 +25,8 @@ class Server {
         this.server.validator(Joi);
 
         this.server.route([
-            require('./routes/fullUrl'),
-            require('./routes/openingText'),
+            require('./routes/url'),
+            require('./routes/opening_text'),
         ]);
 
         await this.server.start();
